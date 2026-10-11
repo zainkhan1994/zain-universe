@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zain Khan — AI Systems Builder</title>
+  <meta name="description" content="Zain Khan builds AI systems: voice agents, community platforms and data tools. An interactive map of the work.">
+  <meta name="theme-color" content="#060d16">
+  <meta property="og:title" content="Zain Khan — AI Systems Builder">
+  <meta property="og:description" content="An interactive universe of AI systems, community platforms and data tools.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Zain Khan, home">ZK<span>.</span></a>
+    <nav aria-label="Sections">
+      <a href="#universe">Universe</a>
+      <a href="#work">Work</a>
+      <a href="#journey">Journey</a>
+      <a href="#rhythm">Rhythm</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <h1 id="hero-title" class="sr-only">AI Systems Builder</h1>
+      <div class="hero-copy">
+        <p class="kicker">Zain Khan</p>
+        <p class="lede">I build simple systems that help people organize information, automate work, and turn ideas into action.</p>
+        <p class="hint"><span class="pulse"></span> Move your cursor through the particles. Scroll to explore.</p>
+      </div>
+      <a class="scroll-cue" href="#numbers" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- NUMBERS -->
+    <section id="numbers" class="numbers reveal" aria-label="At a glance">
+      <div class="num"><b data-count="63">0</b><span>projects with history</span></div>
+      <div class="num"><b data-count="497">0</b><span>commits, bots excluded</span></div>
+      <div class="num"><b data-count="5">0</b><span>domains of work</span></div>
+      <div class="num"><b data-count="29">0</b><span>months of building</span></div>
+    </section>
+
+    <!-- UNIVERSE -->
+    <section id="universe" class="universe" aria-labelledby="universe-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">01 · The universe</p>
+        <h2 id="universe-title">Everything I've built, as one map.</h2>
+        <p>Five clusters, one orbit. Drag to rotate, hover a star, click it to open the project.</p>
+      </div>
+      <div class="uni-wrap">
+        <div class="uni-stage">
+          <canvas id="uni-canvas" aria-label="Interactive 3D map of projects. A list of the same projects follows for keyboard and screen reader use." role="img"></canvas>
+          <div class="uni-tip" id="uni-tip" hidden></div>
+          <div class="uni-legend" id="uni-legend" role="group" aria-label="Filter by cluster"></div>
+        </div>
+        <aside class="uni-panel" id="uni-panel" aria-live="polite">
+          <p class="eyebrow" id="p-cluster">Select a star</p>
+          <h3 id="p-title">Pick any project</h3>
+          <p id="p-blurb">Each point is a real repository. Colors are clusters; lines connect a project to the hub of its cluster.</p>
+          <ul class="chips" id="p-stack"></ul>
+          <p class="meta" id="p-date"></p>
+          <a class="btn" id="p-live" href="#" target="_blank" rel="noopener" hidden>Open live site ↗</a>
+        </aside>
+      </div>
+      <details class="uni-list">
+        <summary>All projects as a list</summary>
+        <div id="uni-list"></div>
+      </details>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="work" aria-labelledby="work-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">02 · Selected work</p>
+        <h2 id="work-title">Six things that show how I think.</h2>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="journey" aria-labelledby="journey-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">03 · The journey</p>
+        <h2 id="journey-title">From small scripts to live systems.</h2>
+        <p>Dates are first commits in each project's history.</p>
+      </div>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <!-- RHYTHM -->
+    <section id="rhythm" class="rhythm" aria-labelledby="rhythm-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">04 · Build rhythm</p>
+        <h2 id="rhythm-title">The work accelerates.</h2>
+        <p>Commits per month across 63 projects, from the real git history (automated commits excluded).</p>
+      </div>
+      <div class="chart reveal" id="chart" role="img" aria-label="Bar chart of commits per month from June 2024 to October 2026, rising sharply in 2026."></div>
+    </section>
+
+    <!-- STACK -->
+    <section class="stack" aria-labelledby="stack-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">05 · Toolbox</p>
+        <h2 id="stack-title">What I reach for.</h2>
+      </div>
+      <ul class="stack-cloud reveal" id="stack"></ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="reveal">
+        <p class="eyebrow">06 · Contact</p>
+        <h2 id="contact-title">Let's build something.</h2>
+        <p class="contact-sub">AI systems, community platforms, data tools.</p>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Zain Khan · Built with plain HTML, CSS and canvas. No frameworks, no trackers. <a href="https://github.com/zainkhan1994/zain-universe">Source</a></p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/universe.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
