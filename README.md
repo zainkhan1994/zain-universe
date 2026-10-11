@@ -22,6 +22,7 @@ This site turns the project history into one explorable space: particles assembl
 
 - Particle hero that assembles 'AI SYSTEMS BUILDER' and reacts to cursor and touch
 - Draggable 3D project map: five clusters, hover tooltips, click for details, cluster filters, keyboard-accessible project list
+- Domains: four areas of work with real logos (local brand files and Simple Icons SVGs), Google Skills badges and Space Apps Houston growth figures from the owner's notes
 - Selected-work cards with real screenshots and 3D tilt
 - Scroll-drawn timeline from first-commit dates
 - Commit-rhythm chart from real git history (bots excluded)

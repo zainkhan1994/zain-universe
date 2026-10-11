@@ -17,7 +17,13 @@ window.UNIVERSE = {
     // --- Voice & Multimodal AI
     { id: "cortana", cluster: "ai", name: "Cortana Multimodal Live Agent", date: "2026-03",
       blurb: "A Gemini Live voice agent with a 3D HUD that routes speech into image and video generation, with local-first artifacts and an optional Cloud Run upload service.",
-      stack: ["React", "TypeScript", "Gemini Live", "Three.js", "Cloud Run"], live: "http://organize-with.me/Cortana-MultiModal-Live-Agent/" },
+      stack: [
+    { n: "TypeScript", l: "typescript.svg" }, { n: "React", l: "react.svg" }, { n: "Next.js", l: "nextdotjs.svg" }, { n: "Python", l: "python.svg" },
+    { n: "Google Cloud", l: "googlecloud.svg" }, { n: "Gemini API", l: "googlegemini.svg" }, { n: "Three.js / WebGL", l: "threedotjs.svg" }, { n: "Vite", l: "vite.svg" },
+    { n: "Firebase", l: "firebase.svg" }, { n: "Supabase", l: "supabase.svg" }, { n: "Terraform", l: "terraform.svg" }, { n: "FastAPI", l: "fastapi.svg" },
+    { n: "Streamlit", l: "streamlit.svg" }, { n: "Vercel", l: "vercel.svg" }, { n: "GitHub", l: "github.svg" }, { n: "Figma", l: "figma.svg" },
+    { n: "Cloud Run" }, { n: "Vertex AI" }, { n: "Apps Script" }, { n: "GitHub Actions" }
+  ], live: "http://organize-with.me/Cortana-MultiModal-Live-Agent/" },
     { id: "orb", cluster: "ai", name: "Audio Orb", date: "2026-03",
       blurb: "A Three.js orb with custom GLSL shaders that deforms and glows with the audio of a Gemini live session.",
       stack: ["Lit", "Three.js", "GLSL", "Gemini"], live: null },
@@ -135,7 +141,7 @@ window.UNIVERSE = {
       line: "GPU data processing with RAPIDS feeding a Llama 3 chat served from GKE. An end-to-end AI engineering workflow.",
       tags: ["RAPIDS", "Llama 3", "GKE", "NIM"] },
     { id: "spaceapps-v2", art: "space", kicker: "Community", title: "Space Apps Houston",
-      line: "The 2025 event site I built as Local Lead: a 3D challenge explorer, a globe of space agencies and an AI help widget.",
+      line: "The 2025 event site I built as Local Lead: a 3D challenge explorer, a globe of space agencies and an AI help widget. The event grew from ~12 participants in its first year to ~80 in 2025.",
       tags: ["React", "react-three-fiber", "TypeScript", "Vercel"] },
     { id: "communityhub", art: "hub", kicker: "Product", title: "CommunityHub",
       line: "Multi-tenant SaaS where a school district or city runs its public site and communication from one admin, with row-level security.",
@@ -143,6 +149,7 @@ window.UNIVERSE = {
   ],
 
   timeline: [
+    { when: "2019", title: "Regional Director, MIST", text: "A leadership role from my work notes: the first entry on this timeline." },
     { when: "2024-06", title: "First scripts", text: "Python scrapers and a Google API organizer: the start of automating chores." },
     { when: "2024-09", title: "A first portfolio draft", text: "A vCard-based site and a NASA Space Apps 2024 page, plus small Python file tools." },
     { when: "2025-03", title: "File and data tooling", text: "File lister, sorter and storage analysis scripts, consolidated into one toolkit." },
@@ -157,6 +164,39 @@ window.UNIVERSE = {
 
   stack: ["TypeScript", "React", "Next.js", "Python", "Google Cloud", "Gemini API", "Three.js / WebGL", "Vite", "Firebase",
           "Supabase", "Terraform", "Cloud Run", "Vertex AI", "FastAPI", "Streamlit", "Apps Script", "GitHub Actions", "Vercel"],
+
+  // ---- context from Notion + local folders (professional only) ----
+  domains: [
+    { id: "systems", title: "Systems & AI tooling", color: "#00d4ff",
+      text: "A personal operating system in Notion, wired to AI assistants and automations. I design the structure first, then connect the tools.",
+      logos: [
+        { n: "OpenAI", s: "assets/logos/openai.svg" }, { n: "Anthropic", s: "assets/logos/anthropic.svg" }, { n: "Gemini", s: "assets/logos/googlegemini.svg" },
+        { n: "Notion", s: "assets/logos/notion.svg" }, { n: "GitHub", s: "assets/logos/github.svg" },
+        { n: "Google Cloud", s: "assets/logos/googlecloud.svg" }, { n: "Rewind", s: "assets/logos/local/rewind.png" }, { n: "Fireflies", s: "assets/logos/local/fireflies.png" },
+        { n: "IFTTT", s: "assets/logos/local/ifttt.png" }, { n: "Miro", s: "assets/logos/local/miro.png" }
+      ] },
+    { id: "community", title: "Space, community & events", color: "#ffd700",
+      text: "Local lead for NASA Space Apps Houston, the Tulsa Google Developer Group, hack weeks, and the Space Force Association's Tulsa chapter.",
+      logos: [
+        { n: "NASA", s: "assets/logos/nasa.svg" }, { n: "Google for Developers (GDG)", s: "assets/logos/local/gdg.png", wide: true },
+        { n: "Major League Hacking", s: "assets/logos/majorleaguehacking.svg" }, { n: "Space Force Association", s: "assets/logos/local/sfa.png", wide: true },
+        { n: "Meetup", s: "assets/logos/local/meetup.png" }, { n: "Eventbrite", s: "assets/logos/local/eventbrite.png" }
+      ] },
+    { id: "consulting", title: "Consulting & growth", color: "#ff6b35",
+      text: "Business development and consulting in the Oracle EPM and NetSuite ecosystem, including work with R-Cubed: lead research, sales operations, events and webinars.",
+      logos: [ { n: "Oracle", s: "assets/logos/oracle.svg" }, { n: "Google", s: "assets/logos/google.svg" } ] },
+    { id: "own", title: "Khanstruct, my own studio", color: "#9b8cff",
+      text: "An AI agency practice: design, data and AI implementation. It's where the WebGL site, the intro animations and the agents come together.",
+      logos: [ { n: "TypeScript", s: "assets/logos/typescript.svg" }, { n: "React", s: "assets/logos/react.svg" }, { n: "Next.js", s: "assets/logos/nextdotjs.svg" },
+               { n: "Python", s: "assets/logos/python.svg" }, { n: "Figma", s: "assets/logos/figma.svg" } ] }
+  ],
+  badges: {
+    total: 47,
+    note: "Google Skills completion badges, including Agent Fundamentals, Introduction to AI Agents and MLOps for Generative AI.",
+    items: ["assets/badges/b1.png", "assets/badges/b2.png", "assets/badges/b3.png", "assets/badges/b4.png", "assets/badges/b5.png", "assets/badges/b6.png"]
+  },
+  growth: { label: "NASA Space Apps Houston participants", points: [["First year", 12], ["Second year", 48], ["2025", 80]],
+    note: "From the event notes: ~12 participants in its first year, ~48 in the next, ~80 in 2025." },
 
   contact: [
     { label: "LinkedIn", href: "https://linkedin.com/in/zainkhan" },

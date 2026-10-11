@@ -21,7 +21,7 @@ An immersive portfolio: a particle hero, a draggable 3D map of every project, a 
 ## Conventions
 
 - Add or change content only in `js/data.js`; every project must exist as a real repo and `live` is set only for a verified working URL.
-- Keep it dependency-free: no npm, no CDN scripts.
+- Keep it dependency-free: no npm, no CDN scripts. Logos are local files in `assets/logos` (Simple Icons CC0 SVGs plus brand PNGs from the owner's own folders).
 - Honor `prefers-reduced-motion` in every new animation.
 - Regenerate `data/rhythm.json` from git history; never hand-edit the numbers.
 - Secrets never go in the repo. Variables are named in `.env.example` (if present); real values live in untracked env files or the host's settings.

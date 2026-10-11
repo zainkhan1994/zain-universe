@@ -17,10 +17,10 @@
       if (!e.isIntersecting) return;
       cio.unobserve(e.target);
       const el = e.target, end = +el.dataset.count, dur = 1600, t0 = performance.now();
-      if (reduce) { el.textContent = end; return; }
+      const pre = el.dataset.prefix || ''; if (reduce) { el.textContent = pre + end; return; }
       (function tick(now) {
         const t = Math.min(1, (now - t0) / dur), v = 1 - Math.pow(1 - t, 3);
-        el.textContent = Math.round(end * v);
+        el.textContent = pre + Math.round(end * v);
         if (t < 1) requestAnimationFrame(tick);
       })(t0);
     });
@@ -42,7 +42,7 @@
   const sio = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id)); });
   }, { threshold: 0.35 });
-  ["universe", "work", "journey", "rhythm", "contact"].forEach((id) => sio.observe($(id)));
+  ["universe", "domains", "work", "journey", "rhythm", "contact"].forEach((id) => sio.observe($(id)));
 
   // ---------- work cards ----------
   const ART = {
@@ -81,7 +81,8 @@
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   tl.innerHTML = '<span class="fill" aria-hidden="true"></span>' + D.timeline.map((t) => {
     const [y, m] = t.when.split("-");
-    return `<li class="t-item"><time datetime="${t.when}">${MONTHS[+m - 1]} ${y}</time><h3>${t.title}</h3><p>${t.text}</p></li>`;
+    const label = m ? MONTHS[+m - 1] + " " + y : y;
+    return `<li class="t-item"><time datetime="${t.when}">${label}</time><h3>${t.title}</h3><p>${t.text}</p></li>`;
   }).join("");
   const items = [...tl.querySelectorAll(".t-item")], fill = tl.querySelector(".fill");
   items.forEach(observe);
@@ -108,8 +109,24 @@
   }).catch(() => { chart.textContent = "Chart data unavailable."; });
 
   // ---------- toolbox & contact ----------
-  $("stack").innerHTML = D.stack.map((s, i) => `<li style="--d:${(i % 7) * 0.45}s">${s}</li>`).join("");
+  $("stack").innerHTML = D.stack.map((s, i) => `<li style="--d:${(i % 7) * 0.45}s">${s.l ? `<img src="assets/logos/${s.l}" alt="" width="18" height="18" loading="lazy">` : ""}${s.n}</li>`).join("");
   $("contact-links").innerHTML = D.contact.map((c) => `<a href="${c.href}"${c.href.startsWith("mailto") ? "" : ' target="_blank" rel="noopener"'}>${c.label}</a>`).join("");
+
+
+  // ---------- domains, credentials, growth ----------
+  $("domain-grid").innerHTML = D.domains.map((d, i) => `<article class="domain reveal" style="--c:${d.color};transition-delay:${i * 80}ms">
+      <h3>${d.title}</h3><p>${d.text}</p>
+      <div class="logo-grid">${d.logos.map((l) => `<span class="logo${l.wide ? " wide" : ""}" data-n="${l.n}" style="--c:${d.color}"><img src="${l.s}" alt="${l.n}" loading="lazy"></span>`).join("")}</div></article>`).join("");
+  document.querySelectorAll(".domain").forEach(observe);
+  $("badge-note").textContent = D.badges.note;
+  $("badge-row").innerHTML = D.badges.items.map((src) => `<img src="${src}" alt="Google Skills completion badge" loading="lazy" height="120">`).join("");
+  const gmax = Math.max(...D.growth.points.map((p) => p[1]));
+  $("growth").innerHTML = `<h4>${D.growth.label}</h4><div class="g-bars">${D.growth.points.map(([k, v]) => `<div class="g-bar"><b>~${v}</b><i data-h="${(v / gmax) * 100}"></i><span>${k}</span></div>`).join("")}</div><p class="note">${D.growth.note}</p>`;
+  const gio = new IntersectionObserver((en) => {
+    if (!en[0].isIntersecting) return; gio.disconnect();
+    document.querySelectorAll("#growth .g-bar i").forEach((i, idx) => setTimeout(() => { i.style.height = i.dataset.h + "%"; }, reduce ? 0 : idx * 250));
+  }, { threshold: 0.4 });
+  gio.observe($("growth"));
 
   onScroll();
 })();
